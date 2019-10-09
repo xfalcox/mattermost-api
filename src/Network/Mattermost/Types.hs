@@ -136,11 +136,13 @@ data Login
   = Login
   { username :: Text
   , password :: Text
+  , mfatoken :: Text
   }
 
 instance A.ToJSON Login where
   toJSON l = A.object ["login_id" A..= username l
                       ,"password" A..= password l
+                      ,"token"    A..= mfatoken l
                       ]
 
 
